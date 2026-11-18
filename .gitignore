@@ -1,0 +1,20 @@
+# renders and caches
+build/
+tmp/
+out/
+*.mp4
+!build/.gitkeep
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# whisper model cache
+.cache/
+models/
+
+# os
+Thumbs.db
+.DS_Store

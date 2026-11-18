@@ -1,0 +1,125 @@
+name: render
+
+# Free rendering on GitHub's machines — your PC only has to upload the script
+# and the narration.
+#
+#   1. put  films/<slug>/script.txt  and  films/<slug>/voice.mp3  in the repo
+#   2. Actions → render → Run workflow → slug: <slug>
+#   3. download the landscape + portrait MP4s from the run's Artifacts
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Film folder name (under films/), or 'all'"
+        required: true
+        default: all
+      layout:
+        description: "landscape | portrait | both"
+        required: true
+        default: both
+        type: choice
+        options: [both, landscape, portrait]
+      force:
+        description: "Re-time from the narration (ignore cached spec.json)"
+        required: false
+        default: false
+        type: boolean
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: render-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ffmpeg (with libass + harfbuzz)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          ffmpeg -hide_banner -version | head -n 3
+          ffmpeg -hide_banner -filters | grep -E ' (ass|subtitles|gradfun) '
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install python deps
+        run: pip install -r requirements.txt
+
+      - name: Cache whisper model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: whisper-tiny-v1
+
+      - name: Render
+        shell: bash
+        env:
+          SLUG: ${{ inputs.slug || 'all' }}
+          LAYOUT: ${{ inputs.layout || 'both' }}
+          FORCE: ${{ inputs.force }}
+        run: |
+          set -euo pipefail
+          force_flag=""
+          if [ "$FORCE" = "true" ]; then force_flag="--force"; fi
+
+          shopt -s nullglob
+          if [ "$SLUG" = "all" ]; then
+            films=(films/*/script.txt)
+          else
+            films=("films/$SLUG/script.txt")
+          fi
+
+          if [ ${#films[@]} -eq 0 ]; then
+            echo "no films found"; exit 1
+          fi
+
+          for script in "${films[@]}"; do
+            dir=$(dirname "$script")
+            slug=$(basename "$dir")
+            voice=""
+            for cand in "$dir"/voice.*; do
+              case "$cand" in
+                *.mp3|*.wav|*.m4a|*.aac|*.ogg|*.flac) voice="$cand"; break;;
+              esac
+            done
+            args=(--script "$script" --slug "$slug" --film-dir "$dir"
+                  --layout "$LAYOUT" $force_flag)
+            if [ -n "$voice" ]; then args+=(--voice "$voice"); fi
+            echo "::group::$slug"
+            python pipeline.py "${args[@]}"
+            echo "::endgroup::"
+          done
+
+      - name: Collect videos
+        if: always()
+        run: |
+          mkdir -p deliverable
+          find build -name '*.mp4' -not -path '*/scenes/*' -exec cp {} deliverable/ \;
+          ls -lh deliverable || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: films-${{ github.run_number }}
+          path: deliverable/*.mp4
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Attach to release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: deliverable/*.mp4

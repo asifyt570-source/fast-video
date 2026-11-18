@@ -1,0 +1,728 @@
+{
+  "slug": "rat-tokhon-auto",
+  "title": "রাত তখন প্রায় বারোটা",
+  "brand": "একটি ছোট গল্প",
+  "fps": 30,
+  "bed": [
+    [
+      "amb-night",
+      0.09
+    ]
+  ],
+  "scenes": [
+    {
+      "text": "রাত তখন প্রায় বারোটা।",
+      "head": "রাত তখন প্রায় বারোটা",
+      "emphasise": [
+        "প্রায়"
+      ],
+      "start": 0.0,
+      "end": 2.022,
+      "mood": "night",
+      "accent": "cyan",
+      "gfx": [
+        {
+          "type": "beam",
+          "colour": "white",
+          "at": [
+            0.3,
+            0.46
+          ],
+          "at_p": [
+            0.42,
+            0.4
+          ],
+          "size": [
+            0.6,
+            1.15
+          ],
+          "size_p": [
+            0.85,
+            0.9
+          ],
+          "angle": -20,
+          "start": 0.0
+        },
+        {
+          "type": "clock",
+          "at": [
+            0.745,
+            0.42
+          ],
+          "at_p": [
+            0.5,
+            0.6
+          ],
+          "size": 0.28,
+          "size_p": 0.44,
+          "hours": 12,
+          "minutes": 30,
+          "colour": "cyan"
+        },
+        {
+          "type": "icon",
+          "name": "moon",
+          "colour": "cyan",
+          "at": [
+            0.862,
+            0.195
+          ],
+          "at_p": [
+            0.74,
+            0.19
+          ],
+          "size": 0.115,
+          "size_p": 0.13,
+          "enter": "pop",
+          "ring": false,
+          "start": 0.1
+        },
+        {
+          "type": "rule",
+          "at": [
+            0.345,
+            0.477
+          ],
+          "at_p": [
+            0.5,
+            0.375
+          ],
+          "width": 0.12,
+          "colour": "cyan",
+          "start": 0.22
+        }
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          0.0,
+          0.45
+        ],
+        [
+          "ping",
+          0.14,
+          0.26
+        ]
+      ],
+      "head_at": [
+        0.345,
+        0.4
+      ],
+      "head_at_p": [
+        0.5,
+        0.3
+      ],
+      "head_max_w": 0.6
+    },
+    {
+      "text": "শহরের রাস্তাগুলো একদম ফাঁকা।",
+      "head": "শহরের রাস্তাগুলো একদম ফাঁকা",
+      "emphasise": [
+        "রাস্তাগুলো"
+      ],
+      "start": 2.022,
+      "end": 4.446,
+      "mood": "dark",
+      "accent": "cyan",
+      "gfx": [
+        {
+          "type": "skyline",
+          "colour": "cyan",
+          "height": 0.36,
+          "seed": 7,
+          "start": 0.0
+        },
+        {
+          "type": "shade",
+          "alpha": 0.4,
+          "height": 1.0,
+          "from_bottom": false
+        },
+        {
+          "type": "icon",
+          "name": "globe",
+          "colour": "cyan",
+          "at": [
+            0.862,
+            0.195
+          ],
+          "at_p": [
+            0.74,
+            0.19
+          ],
+          "size": 0.115,
+          "size_p": 0.13,
+          "enter": "pop",
+          "ring": false,
+          "start": 0.1
+        },
+        {
+          "type": "rule",
+          "at": [
+            0.5,
+            0.475
+          ],
+          "at_p": [
+            0.5,
+            0.44
+          ],
+          "width": 0.12,
+          "colour": "cyan",
+          "start": 0.22
+        }
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          0.0,
+          0.45
+        ],
+        [
+          "ping",
+          0.14,
+          0.26
+        ]
+      ],
+      "head_at": [
+        0.5,
+        0.4
+      ],
+      "head_at_p": [
+        0.5,
+        0.34
+      ],
+      "head_max_w": 0.9
+    },
+    {
+      "text": "একটা ছেলে জানালার পাশে বসে ল্যাপটপে কাজ করছে।",
+      "head": "পাশে বসে ল্যাপটপে কাজ করছে",
+      "emphasise": [
+        "ল্যাপটপে"
+      ],
+      "start": 4.446,
+      "end": 8.197,
+      "mood": "night",
+      "accent": "violet",
+      "gfx": [
+        {
+          "type": "panel",
+          "at": [
+            0.765,
+            0.455
+          ],
+          "at_p": [
+            0.5,
+            0.62
+          ],
+          "size": [
+            0.25,
+            0.24
+          ],
+          "size_p": [
+            0.62,
+            0.2
+          ],
+          "colour": "ink",
+          "border": "violet",
+          "enter": "slideR",
+          "radius": 34,
+          "alpha": 190
+        },
+        {
+          "type": "icon",
+          "name": "laptop",
+          "colour": "violet",
+          "at": [
+            0.765,
+            0.455
+          ],
+          "at_p": [
+            0.5,
+            0.62
+          ],
+          "size": 0.15,
+          "size_p": 0.19,
+          "enter": "pop",
+          "ring": false,
+          "start": 0.1
+        },
+        {
+          "type": "rule",
+          "at": [
+            0.335,
+            0.512
+          ],
+          "at_p": [
+            0.5,
+            0.412
+          ],
+          "width": 0.12,
+          "colour": "violet",
+          "start": 0.22
+        }
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          0.0,
+          0.45
+        ],
+        [
+          "pop",
+          0.14,
+          0.26
+        ]
+      ],
+      "head_at": [
+        0.335,
+        0.435
+      ],
+      "head_at_p": [
+        0.5,
+        0.335
+      ],
+      "head_max_w": 0.58
+    },
+    {
+      "text": "হঠাৎ বিদ্যুৎ চলে গেল!",
+      "head": "হঠাৎ বিদ্যুৎ চলে গেল",
+      "emphasise": [
+        "বিদ্যুৎ"
+      ],
+      "start": 8.197,
+      "end": 10.046,
+      "mood": "alert",
+      "accent": "magenta",
+      "gfx": [
+        {
+          "type": "flash",
+          "start": 0.0,
+          "dur": 0.12
+        },
+        {
+          "type": "shade",
+          "alpha": 0.4,
+          "height": 1.0,
+          "from_bottom": false
+        },
+        {
+          "type": "icon",
+          "name": "bolt",
+          "colour": "magenta",
+          "at": [
+            0.5,
+            0.295
+          ],
+          "at_p": [
+            0.5,
+            0.36
+          ],
+          "size": 0.19,
+          "size_p": 0.24,
+          "enter": "pop",
+          "ring": false,
+          "start": 0.1
+        },
+        {
+          "type": "rule",
+          "at": [
+            0.5,
+            0.738
+          ],
+          "at_p": [
+            0.5,
+            0.678
+          ],
+          "width": 0.12,
+          "colour": "magenta",
+          "start": 0.22
+        }
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          0.0,
+          0.45
+        ],
+        [
+          "switch",
+          0.14,
+          0.26
+        ]
+      ],
+      "head_at": [
+        0.5,
+        0.66
+      ],
+      "head_at_p": [
+        0.5,
+        0.6
+      ],
+      "head_max_w": 0.9,
+      "head_style": "HeadBig",
+      "head_delay": 0.06,
+      "head_enter": 300
+    },
+    {
+      "text": "চারপাশ অন্ধকার।",
+      "head": "চারপাশ অন্ধকার",
+      "emphasise": [
+        "অন্ধকার"
+      ],
+      "start": 10.046,
+      "end": 11.423,
+      "mood": "dark",
+      "accent": "violet",
+      "gfx": [
+        {
+          "type": "shade",
+          "alpha": 0.4,
+          "height": 1.0,
+          "from_bottom": false
+        },
+        {
+          "type": "icon",
+          "name": "moon",
+          "colour": "violet",
+          "at": [
+            0.862,
+            0.195
+          ],
+          "at_p": [
+            0.74,
+            0.19
+          ],
+          "size": 0.115,
+          "size_p": 0.13,
+          "enter": "pop",
+          "ring": false,
+          "start": 0.1
+        },
+        {
+          "type": "rule",
+          "at": [
+            0.5,
+            0.475
+          ],
+          "at_p": [
+            0.5,
+            0.44
+          ],
+          "width": 0.12,
+          "colour": "violet",
+          "start": 0.22
+        }
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          0.0,
+          0.45
+        ],
+        [
+          "pop",
+          0.14,
+          0.26
+        ]
+      ],
+      "head_at": [
+        0.5,
+        0.4
+      ],
+      "head_at_p": [
+        0.5,
+        0.34
+      ],
+      "head_max_w": 0.9,
+      "head_delay": 0.06,
+      "head_enter": 300
+    },
+    {
+      "text": "শুধু জানালা দিয়ে আসা চাঁদের আলো তার মুখে পড়ছে।",
+      "head": "চাঁদের আলো তার মুখে পড়ছে",
+      "emphasise": [
+        "পড়ছে"
+      ],
+      "start": 11.423,
+      "end": 15.404,
+      "mood": "night",
+      "accent": "cyan",
+      "gfx": [
+        {
+          "type": "beam",
+          "colour": "white",
+          "at": [
+            0.3,
+            0.46
+          ],
+          "at_p": [
+            0.42,
+            0.4
+          ],
+          "size": [
+            0.6,
+            1.15
+          ],
+          "size_p": [
+            0.85,
+            0.9
+          ],
+          "angle": -20,
+          "start": 0.0
+        },
+        {
+          "type": "icon",
+          "name": "moon",
+          "colour": "cyan",
+          "at": [
+            0.862,
+            0.195
+          ],
+          "at_p": [
+            0.74,
+            0.19
+          ],
+          "size": 0.115,
+          "size_p": 0.13,
+          "enter": "pop",
+          "ring": false,
+          "start": 0.1
+        },
+        {
+          "type": "rule",
+          "at": [
+            0.5,
+            0.475
+          ],
+          "at_p": [
+            0.5,
+            0.44
+          ],
+          "width": 0.12,
+          "colour": "cyan",
+          "start": 0.22
+        }
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          0.0,
+          0.45
+        ],
+        [
+          "ping",
+          0.14,
+          0.26
+        ]
+      ],
+      "head_at": [
+        0.5,
+        0.4
+      ],
+      "head_at_p": [
+        0.5,
+        0.34
+      ],
+      "head_max_w": 0.9
+    },
+    {
+      "text": "সে একটু হাসল, ফোনের টর্চ জ্বালাল, আর আবার কাজে ফিরে গেল।",
+      "head": "আর আবার কাজে ফিরে গেল",
+      "emphasise": [
+        "কাজে"
+      ],
+      "start": 15.404,
+      "end": 19.991,
+      "mood": "warm",
+      "accent": "magenta",
+      "gfx": [
+        {
+          "type": "icon",
+          "name": "heart",
+          "colour": "magenta",
+          "at": [
+            0.862,
+            0.195
+          ],
+          "at_p": [
+            0.74,
+            0.19
+          ],
+          "size": 0.115,
+          "size_p": 0.13,
+          "enter": "pop",
+          "ring": false,
+          "start": 0.1
+        },
+        {
+          "type": "rule",
+          "at": [
+            0.5,
+            0.475
+          ],
+          "at_p": [
+            0.5,
+            0.44
+          ],
+          "width": 0.12,
+          "colour": "magenta",
+          "start": 0.22
+        }
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          0.0,
+          0.45
+        ],
+        [
+          "switch",
+          0.14,
+          0.26
+        ]
+      ],
+      "head_at": [
+        0.5,
+        0.4
+      ],
+      "head_at_p": [
+        0.5,
+        0.34
+      ],
+      "head_max_w": 0.9
+    },
+    {
+      "text": "কারণ তার একটা স্বপ্ন আছে।",
+      "head": "কারণ তার একটা স্বপ্ন আছে",
+      "emphasise": [
+        "স্বপ্ন"
+      ],
+      "start": 19.991,
+      "end": 22.175,
+      "mood": "warm",
+      "accent": "amber",
+      "gfx": [
+        {
+          "type": "icon",
+          "name": "star",
+          "colour": "amber",
+          "at": [
+            0.862,
+            0.195
+          ],
+          "at_p": [
+            0.74,
+            0.19
+          ],
+          "size": 0.115,
+          "size_p": 0.13,
+          "enter": "pop",
+          "ring": true,
+          "start": 0.1
+        },
+        {
+          "type": "rule",
+          "at": [
+            0.5,
+            0.475
+          ],
+          "at_p": [
+            0.5,
+            0.44
+          ],
+          "width": 0.12,
+          "colour": "amber",
+          "start": 0.22
+        }
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          0.0,
+          0.45
+        ],
+        [
+          "ping",
+          0.14,
+          0.26
+        ]
+      ],
+      "head_at": [
+        0.5,
+        0.4
+      ],
+      "head_at_p": [
+        0.5,
+        0.34
+      ],
+      "head_max_w": 0.9
+    },
+    {
+      "text": "আর সেই স্বপ্ন পূরণ করতে হলে, তাকে থেমে গেলে চলবে না।",
+      "head": "তাকে থেমে গেলে চলবে না",
+      "emphasise": [
+        "থেমে"
+      ],
+      "start": 22.175,
+      "end": 26.462,
+      "mood": "warm",
+      "accent": "amber",
+      "gfx": [
+        {
+          "type": "icon",
+          "name": "star",
+          "colour": "amber",
+          "at": [
+            0.862,
+            0.195
+          ],
+          "at_p": [
+            0.74,
+            0.19
+          ],
+          "size": 0.115,
+          "size_p": 0.13,
+          "enter": "pop",
+          "ring": true,
+          "start": 0.1
+        },
+        {
+          "type": "rule",
+          "at": [
+            0.5,
+            0.475
+          ],
+          "at_p": [
+            0.5,
+            0.44
+          ],
+          "width": 0.12,
+          "colour": "amber",
+          "start": 0.22
+        }
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          0.0,
+          0.45
+        ],
+        [
+          "ping",
+          0.14,
+          0.26
+        ]
+      ],
+      "head_at": [
+        0.5,
+        0.4
+      ],
+      "head_at_p": [
+        0.5,
+        0.34
+      ],
+      "head_max_w": 0.9
+    }
+  ],
+  "audio": "assets/voice.mp3"
+}

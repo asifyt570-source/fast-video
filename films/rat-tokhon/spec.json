@@ -1,0 +1,691 @@
+{
+  "slug": "rat-tokhon",
+  "title": "রাত তখন প্রায় বারোটা",
+  "brand": "একটি ছোট গল্প",
+  "audio": "assets/voice.mp3",
+  "fps": 30,
+  "bed": [
+    [
+      "amb-night",
+      0.09
+    ]
+  ],
+  "scenes": [
+    {
+      "text": "রাত তখন প্রায় বারোটা।",
+      "head": "রাত তখন প্রায় বারোটা",
+      "emphasise": [
+        "বারোটা"
+      ],
+      "start": 0.0,
+      "end": 1.72,
+      "mood": "night",
+      "accent": "cyan",
+      "head_at": [
+        0.345,
+        0.4
+      ],
+      "head_at_p": [
+        0.5,
+        0.34
+      ],
+      "head_style": "Head",
+      "sub_y": 0.885,
+      "sub_y_p": 0.885,
+      "gfx": [
+        {
+          "type": "clock",
+          "at": [
+            0.745,
+            0.4
+          ],
+          "at_p": [
+            0.5,
+            0.6
+          ],
+          "size": 0.3,
+          "size_p": 0.44,
+          "hours": 12,
+          "colour": "cyan",
+          "sweep": true,
+          "minutes": 2
+        },
+        {
+          "type": "rule",
+          "at": [
+            0.345,
+            0.472
+          ],
+          "at_p": [
+            0.5,
+            0.44
+          ],
+          "width": 0.13,
+          "colour": "cyan",
+          "start": 0.15
+        }
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          0.0,
+          0.45
+        ],
+        [
+          "clock-tick",
+          0.12,
+          0.2
+        ]
+      ]
+    },
+    {
+      "text": "শহরের রাস্তাগুলো একদম ফাঁকা।",
+      "head": "রাস্তা একদম ফাঁকা",
+      "emphasise": [
+        "ফাঁকা"
+      ],
+      "start": 1.72,
+      "end": 4.28,
+      "mood": "dark",
+      "accent": "cyan",
+      "head_at": [
+        0.5,
+        0.36
+      ],
+      "head_at_p": [
+        0.5,
+        0.34
+      ],
+      "gfx": [
+        {
+          "type": "skyline",
+          "colour": "cyan",
+          "height": 0.4,
+          "seed": 8,
+          "start": 0.0
+        },
+        {
+          "type": "shade",
+          "alpha": 0.35,
+          "height": 0.34,
+          "from_bottom": true
+        },
+        {
+          "type": "rule",
+          "at": [
+            0.5,
+            0.455
+          ],
+          "width": 0.1,
+          "colour": "cyan",
+          "start": 0.2
+        }
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          0.0,
+          0.45
+        ],
+        [
+          "amb-city",
+          0.1,
+          0.18
+        ]
+      ]
+    },
+    {
+      "text": "একটা ছেলে জানালার পাশে বসে ল্যাপটপে কাজ করছে।",
+      "head": "জানালার পাশে, ল্যাপটপে",
+      "emphasise": [
+        "ল্যাপটপে"
+      ],
+      "start": 4.28,
+      "end": 8.1,
+      "mood": "night",
+      "accent": "violet",
+      "head_at": [
+        0.34,
+        0.4
+      ],
+      "head_at_p": [
+        0.5,
+        0.34
+      ],
+      "gfx": [
+        {
+          "type": "panel",
+          "at": [
+            0.735,
+            0.46
+          ],
+          "at_p": [
+            0.5,
+            0.62
+          ],
+          "size": [
+            0.3,
+            0.3
+          ],
+          "size_p": [
+            0.62,
+            0.22
+          ],
+          "colour": "ink",
+          "border": "violet",
+          "enter": "slideR",
+          "radius": 40,
+          "alpha": 190
+        },
+        {
+          "type": "icon",
+          "name": "laptop",
+          "colour": "white",
+          "at": [
+            0.735,
+            0.46
+          ],
+          "at_p": [
+            0.5,
+            0.62
+          ],
+          "size": 0.15,
+          "size_p": 0.2,
+          "enter": "pop",
+          "start": 0.12
+        },
+        {
+          "type": "rule",
+          "at": [
+            0.34,
+            0.475
+          ],
+          "at_p": [
+            0.5,
+            0.44
+          ],
+          "width": 0.13,
+          "colour": "violet",
+          "start": 0.2
+        }
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          0.0,
+          0.45
+        ],
+        [
+          "key-1",
+          0.9,
+          0.35
+        ],
+        [
+          "key-3",
+          1.25,
+          0.3
+        ],
+        [
+          "key-5",
+          1.6,
+          0.3
+        ],
+        [
+          "key-2",
+          2.0,
+          0.28
+        ],
+        [
+          "amb-room",
+          0.2,
+          0.12
+        ]
+      ]
+    },
+    {
+      "text": "হঠাৎ বিদ্যুৎ চলে গেল!",
+      "head": "হঠাৎ বিদ্যুৎ চলে গেল!",
+      "emphasise": [
+        "বিদ্যুৎ"
+      ],
+      "start": 8.1,
+      "end": 10.0,
+      "mood": "alert",
+      "accent": "magenta",
+      "head_at": [
+        0.5,
+        0.62
+      ],
+      "head_at_p": [
+        0.5,
+        0.58
+      ],
+      "head_style": "HeadBig",
+      "gfx": [
+        {
+          "type": "flash",
+          "start": 0.0,
+          "dur": 0.12
+        },
+        {
+          "type": "icon",
+          "name": "bolt",
+          "colour": "amber",
+          "at": [
+            0.5,
+            0.36
+          ],
+          "at_p": [
+            0.5,
+            0.36
+          ],
+          "size": 0.2,
+          "size_p": 0.26,
+          "enter": "pop",
+          "start": 0.02
+        }
+      ],
+      "sfx": [
+        [
+          "switch",
+          0.0,
+          0.55
+        ],
+        [
+          "whoosh",
+          0.0,
+          0.5
+        ],
+        [
+          "gasp",
+          0.35,
+          0.3
+        ]
+      ]
+    },
+    {
+      "text": "চারপাশ অন্ধকার।",
+      "head": "চারপাশ অন্ধকার",
+      "emphasise": [
+        "অন্ধকার"
+      ],
+      "start": 10.0,
+      "end": 11.68,
+      "mood": "dark",
+      "accent": "violet",
+      "head_at": [
+        0.5,
+        0.48
+      ],
+      "head_at_p": [
+        0.5,
+        0.46
+      ],
+      "gfx": [
+        {
+          "type": "shade",
+          "alpha": 0.62,
+          "height": 1.0,
+          "from_bottom": false
+        },
+        {
+          "type": "rule",
+          "at": [
+            0.5,
+            0.56
+          ],
+          "width": 0.08,
+          "colour": "violet",
+          "start": 0.25
+        }
+      ],
+      "sfx": [
+        [
+          "sigh",
+          0.15,
+          0.42
+        ]
+      ]
+    },
+    {
+      "text": "শুধু জানালা দিয়ে আসা চাঁদের আলো তার মুখে পড়ছে।",
+      "head": "চাঁদের আলো তার মুখে",
+      "emphasise": [
+        "চাঁদের"
+      ],
+      "start": 11.68,
+      "end": 15.36,
+      "mood": "night",
+      "accent": "cyan",
+      "head_at": [
+        0.36,
+        0.52
+      ],
+      "head_at_p": [
+        0.5,
+        0.62
+      ],
+      "sub_y": 0.885,
+      "gfx": [
+        {
+          "type": "beam",
+          "colour": "white",
+          "at": [
+            0.3,
+            0.46
+          ],
+          "at_p": [
+            0.42,
+            0.4
+          ],
+          "size": [
+            0.6,
+            1.15
+          ],
+          "size_p": [
+            0.85,
+            0.9
+          ],
+          "angle": -20,
+          "start": 0.0
+        },
+        {
+          "type": "icon",
+          "name": "moon",
+          "colour": "amber",
+          "at": [
+            0.82,
+            0.2
+          ],
+          "at_p": [
+            0.78,
+            0.22
+          ],
+          "size": 0.15,
+          "size_p": 0.2,
+          "enter": "pop",
+          "ring": true,
+          "start": 0.1
+        },
+        {
+          "type": "rule",
+          "at": [
+            0.36,
+            0.62
+          ],
+          "at_p": [
+            0.5,
+            0.7
+          ],
+          "width": 0.11,
+          "colour": "amber",
+          "start": 0.3
+        }
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          0.0,
+          0.4
+        ],
+        [
+          "ping",
+          1.1,
+          0.22
+        ]
+      ]
+    },
+    {
+      "text": "সে একটু হাসল, ফোনের টর্চ জ্বালাল, আর আবার কাজে ফিরে গেল।",
+      "head": "হাসল, টর্চ জ্বালাল, কাজে ফিরল",
+      "emphasise": [
+        "কাজে"
+      ],
+      "start": 15.36,
+      "end": 20.04,
+      "mood": "warm",
+      "accent": "mint",
+      "head_at": [
+        0.5,
+        0.335
+      ],
+      "head_at_p": [
+        0.5,
+        0.32
+      ],
+      "head_style": "Head",
+      "gfx": [
+        {
+          "type": "line",
+          "at": [
+            0.5,
+            0.7144
+          ],
+          "at_p": [
+            0.5,
+            0.7
+          ],
+          "width": 0.5,
+          "colour": "mint",
+          "thick": 0.0035,
+          "start": 0.15
+        },
+        {
+          "type": "icon",
+          "name": "heart",
+          "colour": "magenta",
+          "at": [
+            0.26,
+            0.635
+          ],
+          "at_p": [
+            0.5,
+            0.5
+          ],
+          "size": 0.155,
+          "size_p": 0.17,
+          "enter": "pop",
+          "start": 0.15,
+          "end": 1.9
+        },
+        {
+          "type": "icon",
+          "name": "phone",
+          "colour": "amber",
+          "at": [
+            0.5,
+            0.635
+          ],
+          "at_p": [
+            0.5,
+            0.62
+          ],
+          "size": 0.155,
+          "size_p": 0.17,
+          "enter": "pop",
+          "start": 1.75,
+          "end": 3.5
+        },
+        {
+          "type": "icon",
+          "name": "laptop",
+          "colour": "mint",
+          "at": [
+            0.74,
+            0.635
+          ],
+          "at_p": [
+            0.5,
+            0.74
+          ],
+          "size": 0.155,
+          "size_p": 0.17,
+          "enter": "pop",
+          "start": 3.35
+        },
+        {
+          "type": "rule",
+          "at": [
+            0.5,
+            0.45
+          ],
+          "at_p": [
+            0.5,
+            0.4
+          ],
+          "width": 0.12,
+          "colour": "mint",
+          "start": 0.2
+        }
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          0.0,
+          0.4
+        ],
+        [
+          "ping",
+          0.2,
+          0.3
+        ],
+        [
+          "switch",
+          1.85,
+          0.45
+        ],
+        [
+          "key-1",
+          3.4,
+          0.35
+        ],
+        [
+          "key-4",
+          3.7,
+          0.3
+        ]
+      ]
+    },
+    {
+      "text": "কারণ তার একটা স্বপ্ন আছে।",
+      "head": "কারণ তার একটা স্বপ্ন আছে",
+      "emphasise": [
+        "স্বপ্ন"
+      ],
+      "start": 20.04,
+      "end": 22.12,
+      "mood": "warm",
+      "accent": "amber",
+      "head_at": [
+        0.5,
+        0.63
+      ],
+      "head_at_p": [
+        0.5,
+        0.6
+      ],
+      "gfx": [
+        {
+          "type": "icon",
+          "name": "star",
+          "colour": "amber",
+          "at": [
+            0.5,
+            0.34
+          ],
+          "at_p": [
+            0.5,
+            0.34
+          ],
+          "size": 0.17,
+          "size_p": 0.22,
+          "enter": "pop",
+          "ring": true,
+          "start": 0.1
+        }
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          0.0,
+          0.4
+        ],
+        [
+          "ping",
+          0.15,
+          0.35
+        ]
+      ]
+    },
+    {
+      "text": "আর সেই স্বপ্ন পূরণ করতে হলে, তাকে থেমে গেলে চলবে না।",
+      "head": "তাকে থেমে গেলে চলবে না",
+      "emphasise": [
+        "থেমে"
+      ],
+      "start": 22.12,
+      "end": 26.46,
+      "mood": "warm",
+      "accent": "amber",
+      "head_at": [
+        0.5,
+        0.6
+      ],
+      "head_at_p": [
+        0.5,
+        0.58
+      ],
+      "head_style": "HeadBig",
+      "gfx": [
+        {
+          "type": "icon",
+          "name": "target",
+          "colour": "amber",
+          "at": [
+            0.5,
+            0.31
+          ],
+          "at_p": [
+            0.5,
+            0.32
+          ],
+          "size": 0.16,
+          "size_p": 0.2,
+          "enter": "pop",
+          "start": 0.1
+        },
+        {
+          "type": "rule",
+          "at": [
+            0.5,
+            0.7
+          ],
+          "at_p": [
+            0.5,
+            0.68
+          ],
+          "width": 0.1,
+          "colour": "amber",
+          "start": 0.5
+        }
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          0.0,
+          0.4
+        ],
+        [
+          "ping",
+          0.3,
+          0.3
+        ],
+        [
+          "heartbeat",
+          2.4,
+          0.25
+        ]
+      ]
+    }
+  ]
+}

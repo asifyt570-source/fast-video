@@ -1,0 +1,477 @@
+{
+  "slug": "demo-stats",
+  "title": "সংখ্যা দিয়ে গল্প",
+  "brand": "এক নজরে",
+  "fps": 30,
+  "bed": [
+    [
+      "amb-night",
+      0.09
+    ]
+  ],
+  "scenes": [
+    {
+      "text": "সকাল সাড়ে নয়টায় কাজ শুরু।",
+      "head": "সকাল সাড়ে নয়টায় কাজ শুরু",
+      "emphasise": [
+        "নয়টায়"
+      ],
+      "start": 0.0,
+      "end": 2.8,
+      "mood": "warm",
+      "accent": "amber",
+      "gfx": [
+        {
+          "type": "clock",
+          "at": [
+            0.745,
+            0.42
+          ],
+          "at_p": [
+            0.5,
+            0.6
+          ],
+          "size": 0.28,
+          "size_p": 0.44,
+          "hours": 9,
+          "minutes": 30,
+          "colour": "amber"
+        },
+        {
+          "type": "icon",
+          "name": "sun",
+          "colour": "amber",
+          "at": [
+            0.862,
+            0.195
+          ],
+          "at_p": [
+            0.74,
+            0.19
+          ],
+          "size": 0.115,
+          "size_p": 0.13,
+          "enter": "pop",
+          "ring": false,
+          "start": 0.1
+        },
+        {
+          "type": "rule",
+          "at": [
+            0.345,
+            0.477
+          ],
+          "at_p": [
+            0.5,
+            0.375
+          ],
+          "width": 0.12,
+          "colour": "amber",
+          "start": 0.22
+        }
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          0.0,
+          0.45
+        ],
+        [
+          "ping",
+          0.14,
+          0.26
+        ]
+      ],
+      "head_at": [
+        0.345,
+        0.4
+      ],
+      "head_at_p": [
+        0.5,
+        0.3
+      ],
+      "head_max_w": 0.6
+    },
+    {
+      "text": "গত বছর গ্রাহক বেড়ে দাঁড়িয়েছে এক লক্ষ পঁচিশ হাজারে।",
+      "head": "",
+      "emphasise": [
+        "হাজারে"
+      ],
+      "start": 2.8,
+      "end": 5.6,
+      "mood": "night",
+      "accent": "mint",
+      "gfx": [
+        {
+          "type": "rule",
+          "at": [
+            0.5,
+            0.335
+          ],
+          "at_p": [
+            0.5,
+            0.375
+          ],
+          "width": 0.1,
+          "colour": "mint",
+          "start": 0.14
+        }
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          0.0,
+          0.45
+        ],
+        [
+          "ping",
+          0.14,
+          0.26
+        ]
+      ],
+      "counter": {
+        "value": 125000.0,
+        "suffix": "+",
+        "label": "গ্রাহক",
+        "delay": 0.22,
+        "ease": 3.2,
+        "style": "Num",
+        "label_at": [
+          0.5,
+          0.575
+        ],
+        "label_at_p": [
+          0.5,
+          0.52
+        ]
+      },
+      "kicker": "গত বছর",
+      "kicker_at": [
+        0.5,
+        0.255
+      ],
+      "kicker_at_p": [
+        0.5,
+        0.24
+      ],
+      "counter_at": [
+        0.5,
+        0.435
+      ],
+      "counter_at_p": [
+        0.5,
+        0.42
+      ],
+      "head_at": [
+        0.5,
+        0.4
+      ],
+      "head_at_p": [
+        0.5,
+        0.34
+      ],
+      "head_max_w": 0.9
+    },
+    {
+      "text": "দেশের তিন শহরে ব্যবসা ছড়িয়ে পড়েছে।",
+      "head": "তিন শহরে ব্যবসা ছড়িয়ে পড়েছে",
+      "emphasise": [
+        "ছড়িয়ে"
+      ],
+      "start": 5.6,
+      "end": 8.4,
+      "mood": "cool",
+      "accent": "mint",
+      "gfx": [
+        {
+          "type": "bars",
+          "items": [
+            [
+              "ঢাকা",
+              52.0
+            ],
+            [
+              "চট্টগ্রাম",
+              31.0
+            ],
+            [
+              "খুলনা",
+              17.0
+            ]
+          ],
+          "at": [
+            0.14,
+            0.47
+          ],
+          "at_p": [
+            0.19,
+            0.42
+          ],
+          "width": 0.38,
+          "width_p": 0.54,
+          "row_gap": 0.078,
+          "colour": "mint",
+          "delay": 0.28,
+          "value_fmt": "num",
+          "value_fmt_p": "num"
+        },
+        {
+          "type": "rule",
+          "at": [
+            0.5,
+            0.36
+          ],
+          "at_p": [
+            0.5,
+            0.31
+          ],
+          "width": 0.12,
+          "colour": "mint",
+          "start": 0.22
+        }
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          0.0,
+          0.45
+        ],
+        [
+          "ping",
+          0.14,
+          0.26
+        ]
+      ],
+      "head_at": [
+        0.5,
+        0.285
+      ],
+      "head_at_p": [
+        0.5,
+        0.235
+      ],
+      "head_max_w": 0.9
+    },
+    {
+      "text": "সবকিছুর শুরু হয়েছিল ঢাকা থেকে।",
+      "head": "সবকিছুর শুরু হয়েছিল ঢাকা থেকে",
+      "emphasise": [
+        "হয়েছিল"
+      ],
+      "start": 8.4,
+      "end": 11.2,
+      "mood": "night",
+      "accent": "amber",
+      "gfx": [
+        {
+          "type": "map",
+          "at": [
+            0.5,
+            0.52
+          ],
+          "at_p": [
+            0.5,
+            0.56
+          ],
+          "size": [
+            0.42,
+            0.32
+          ],
+          "size_p": [
+            0.86,
+            0.34
+          ],
+          "pin_at": [
+            0.56,
+            0.46
+          ],
+          "pin_colour": "amber",
+          "start": 0.1
+        },
+        {
+          "type": "rule",
+          "at": [
+            0.5,
+            0.315
+          ],
+          "at_p": [
+            0.5,
+            0.295
+          ],
+          "width": 0.12,
+          "colour": "amber",
+          "start": 0.22
+        }
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          0.0,
+          0.45
+        ],
+        [
+          "ping",
+          0.14,
+          0.26
+        ]
+      ],
+      "head_at": [
+        0.5,
+        0.235
+      ],
+      "head_at_p": [
+        0.5,
+        0.215
+      ],
+      "head_max_w": 0.9
+    },
+    {
+      "text": "এক বছরে আয় বেড়েছে আটত্রিশ শতাংশ।",
+      "head": "",
+      "emphasise": [
+        "বেড়েছে"
+      ],
+      "start": 11.2,
+      "end": 14.0,
+      "mood": "cool",
+      "accent": "mint",
+      "gfx": [
+        {
+          "type": "rule",
+          "at": [
+            0.5,
+            0.335
+          ],
+          "at_p": [
+            0.5,
+            0.375
+          ],
+          "width": 0.1,
+          "colour": "mint",
+          "start": 0.14
+        }
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          0.0,
+          0.45
+        ],
+        [
+          "ping",
+          0.14,
+          0.26
+        ]
+      ],
+      "counter": {
+        "value": 38.0,
+        "suffix": "%",
+        "label": "বৃদ্ধি",
+        "delay": 0.22,
+        "ease": 3.2,
+        "style": "Num",
+        "label_at": [
+          0.5,
+          0.575
+        ],
+        "label_at_p": [
+          0.5,
+          0.52
+        ]
+      },
+      "kicker": "এক বছরে",
+      "kicker_at": [
+        0.5,
+        0.255
+      ],
+      "kicker_at_p": [
+        0.5,
+        0.24
+      ],
+      "counter_at": [
+        0.5,
+        0.435
+      ],
+      "counter_at_p": [
+        0.5,
+        0.42
+      ],
+      "head_at": [
+        0.5,
+        0.4
+      ],
+      "head_at_p": [
+        0.5,
+        0.34
+      ],
+      "head_max_w": 0.9
+    },
+    {
+      "text": "আর এখন লক্ষ্য পরের ধাপ।",
+      "head": "আর এখন লক্ষ্য পরের ধাপ",
+      "emphasise": [
+        "লক্ষ্য"
+      ],
+      "start": 14.0,
+      "end": 16.8,
+      "mood": "warm",
+      "accent": "amber",
+      "gfx": [
+        {
+          "type": "icon",
+          "name": "target",
+          "colour": "amber",
+          "at": [
+            0.862,
+            0.195
+          ],
+          "at_p": [
+            0.74,
+            0.19
+          ],
+          "size": 0.115,
+          "size_p": 0.13,
+          "enter": "pop",
+          "ring": true,
+          "start": 0.1
+        },
+        {
+          "type": "rule",
+          "at": [
+            0.5,
+            0.475
+          ],
+          "at_p": [
+            0.5,
+            0.44
+          ],
+          "width": 0.12,
+          "colour": "amber",
+          "start": 0.22
+        }
+      ],
+      "sfx": [
+        [
+          "whoosh",
+          0.0,
+          0.45
+        ],
+        [
+          "ping",
+          0.14,
+          0.26
+        ]
+      ],
+      "head_at": [
+        0.5,
+        0.4
+      ],
+      "head_at_p": [
+        0.5,
+        0.34
+      ],
+      "head_max_w": 0.9
+    }
+  ]
+}
