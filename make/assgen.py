@@ -100,6 +100,7 @@ class AssDoc:
     events: list[Event] = field(default_factory=list)
     fontsdir: str = ""
     base_scale: float = 1.0
+    sub_margin: int | None = None
 
     # — geometry helpers —
     def x(self, frac: float) -> int:
@@ -132,7 +133,7 @@ class AssDoc:
             f"{ass_colour('cyan')},&H00100804,&H78000000,-1,0,0,0,100,100,0,0,1,5,3,5,80,80,80,1",
             f"Style: Sub,Noto Sans Bengali,{self.fs(0.038)},{ass_colour('white')},"
             f"{ass_colour('cyan')},&H00201008,&H8C000000,-1,0,0,0,100,100,0,0,1,3,2,2,"
-            f"{int(self.W*0.075)},{int(self.W*0.075)},{int(self.H*0.055)},1",
+            f"{int(self.W*0.075)},{int(self.W*0.075)},{self.sub_margin or int(self.H*0.055)},1",
             f"Style: Kick,Noto Sans Bengali,{self.fs(0.026)},{a('cyan')},"
             f"{a('cyan')},&H00100804,&H00000000,-1,0,0,0,100,100,0,0,1,2,0,5,60,60,60,1",
             f"Style: Num,Anton,{self.fs(0.168)},{a('cyan')},"
@@ -332,7 +333,8 @@ def label_event(doc: AssDoc, start, end, text, xf=0.5, yf=0.54, style="Label") -
 
 
 def brand_event(doc: AssDoc, start, end, text, accent="cyan") -> None:
-    tag = (f"{{\\an5\\pos({doc.x(0.5)},{doc.y(0.972)})"
+    yf = 0.935 if doc.H > doc.W else 0.972
+    tag = (f"{{\\an5\\pos({doc.x(0.5)},{doc.y(yf)})"
            f"\\fad(500,400)\\alpha&H70&}}")
     doc.add(start, end, "Brand", tag + esc(text))
 

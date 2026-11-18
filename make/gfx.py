@@ -45,6 +45,7 @@ class Layer:
     fade_out: float = 0.22
     scale_expr: str | None = None
     rotate: str | None = None
+    alpha: float = 1.0
     name: str = ""
 
 
@@ -89,8 +90,20 @@ class Kit:
         return (f"({cx})-overlay_w/2", f"({cy}){extra_y}-overlay_h/2")
 
     # -- primitives --
+    def ghost(self, name="dot", colour="cyan", at=(0.5, 0.52), size=0.92,
+              alpha=0.12, drift=10):
+        """Huge soft silhouette: fills the air behind a portrait text block."""
+        w = int(min(self.W, self.H) * size)
+        png = assets.ghost(name, colour, 384)
+        cx, cy = self.px(at[0]), self.py(at[1])
+        x, y = self._centre(cx, cy)
+        y = f"({y})+{drift:.0f}*sin(t*0.25)"
+        self.layers.append(Layer(png, self.t0, self.t1, x, y, 0.60, 0.40,
+                                 scale_expr=f"max(2,{w})", alpha=alpha,
+                                 name="ghost"))
+
     def icon(self, name="dot", colour="cyan", at=(0.5, 0.5), size=0.18,
-             t0=None, t1=None, enter="pop", ring=False):
+             t0=None, t1=None, enter="pop", ring=False, alpha=1.0):
         s = int(min(self.W, self.H) * size)
         png = assets.icon_ring(name, colour, 256) if ring else assets.icon(name, colour, 256)
         a, b = self._win(t0, t1)
@@ -101,7 +114,8 @@ class Kit:
             w = ease_out_back(lt, 0.42, s * 0.55, s, 2.2)
             x, y = self._centre(cx, cy)
             self.layers.append(Layer(png, a, b, x, y, 0.18, 0.22,
-                                     scale_expr=f"max(2,{w})", name=name))
+                                     scale_expr=f"max(2,{w})", alpha=alpha,
+                                     name=name))
         elif enter.startswith("slide"):
             off = int(self.W * 0.16)
             dx = dy = 0
@@ -114,10 +128,12 @@ class Kit:
             else:
                 dy = f"+({off}*(1-{self._back(lt)}))"
             x, y = self._centre(f"{cx}{dx}" if dx else cx, f"{cy}{dy}" if dy else cy)
-            self.layers.append(Layer(png, a, b, x, y, 0.22, 0.22, name=name))
+            self.layers.append(Layer(png, a, b, x, y, 0.22, 0.22,
+                                     alpha=alpha, name=name))
         else:
             x, y = self._centre(cx, cy)
-            self.layers.append(Layer(png, a, b, x, y, 0.30, 0.22, name=name))
+            self.layers.append(Layer(png, a, b, x, y, 0.30, 0.22,
+                                     alpha=alpha, name=name))
 
     @staticmethod
     def _back(lt) -> str:
@@ -337,6 +353,8 @@ def build_filter_complex(scene: Scene, W: int, H: int, fps: int,
         idx = i + 1
         extra.append(str(lay.png))
         chain = [f"[{idx}:v]", "format=rgba"]
+        if lay.alpha < 1.0:
+            chain.append(f"colorchannelmixer=aa={lay.alpha:.2f}")
         if lay.rotate:
             chain.append(f"rotate=angle='{lay.rotate}':ow=iw:oh=ih:fillcolor=black@0")
         chain.append(f"fade=t=in:st=0:d={lay.fade_in:.2f}:alpha=1")

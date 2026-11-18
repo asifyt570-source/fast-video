@@ -223,12 +223,22 @@ def render_scene(scene_spec: dict, idx: int, W: int, H: int, fps: int,
     dur = max(0.30, s1 - s0)
 
     kit = Kit(W, H, s0, s1)
-    for d in scene_spec.get("gfx", []):
+    items = scene_spec.get("gfx", [])
+    # Portrait has a lot of vertical air; a giant, very faint copy of the hero
+    # icon sits behind the text block so the middle of the frame is not blank.
+    if portrait:
+        hero = next((d for d in items if d.get("type") == "icon"), None)
+        busy = any(d.get("type") in ("panel", "bars", "map", "clock")
+                   for d in items)
+        if hero and not busy:
+            kit.ghost(hero.get("name", "dot"), hero.get("colour", "cyan"))
+    for d in items:
         apply_gfx(kit, d, scene_spec, portrait)
     if total:
         kit.progress(s0, total, scene_spec.get("accent", "cyan"))
 
-    doc = assgen.AssDoc(W, H, base_scale=LAYOUTS["portrait" if portrait else "landscape"][2])
+    doc = assgen.AssDoc(W, H, base_scale=LAYOUTS["portrait" if portrait else "landscape"][2],
+                        sub_margin=int(H * 0.115) if portrait else None)
     build_ass(scene_spec, doc, portrait)
     doc.shift(-s0, dur)
     ass_path = work / f"scene_{idx:03d}.ass"

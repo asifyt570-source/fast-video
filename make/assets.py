@@ -250,6 +250,19 @@ def icon(name: str, colour: str = "cyan", size: int = 256) -> Path:
     return out
 
 
+def ghost(name: str, colour: str = "cyan", size: int = 512) -> Path:
+    """Blurred silhouette of an icon — used as an ambient portrait backdrop."""
+    out = _cache(f"ghost_{name}_{colour}_{size}.png")
+    if out.exists():
+        return out
+    src = Image.open(icon(name, colour, size)).convert("RGBA")
+    pad = int(size * 0.30)
+    canvas = Image.new("RGBA", (size + pad * 2, size + pad * 2), (0, 0, 0, 0))
+    canvas.paste(src, (pad, pad), src)
+    canvas.filter(ImageFilter.GaussianBlur(size * 0.07)).save(out)
+    return out
+
+
 def icon_ring(name: str, colour: str = "cyan", size: int = 256) -> Path:
     """Icon inside a soft filled disc — good for 'bullet' markers."""
     out = _cache(f"ring_{name}_{colour}_{size}.png")
