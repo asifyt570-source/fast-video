@@ -319,7 +319,7 @@ class Scene:
 
 
 def build_filter_complex(scene: Scene, W: int, H: int, fps: int,
-                         fontsdir: str) -> tuple[str, list[str]]:
+                         fontsdir: str, deband: bool = True) -> tuple[str, list[str]]:
     """Input 0 is the backdrop; inputs 1.. are the layer PNGs."""
     dur = scene.dur
     parts: list[str] = []
@@ -388,5 +388,8 @@ def build_filter_complex(scene: Scene, W: int, H: int, fps: int,
     fdir = fontsdir.replace("\\", "/").replace(":", "\\:")
     parts.append(f"[{cur}]ass=filename='{ass}':fontsdir='{fdir}'[vout]")
     # deband: dark gradients are where x264 banding shows up first
-    parts.append("[vout]gradfun=strength=0.75:radius=18,format=yuv420p[vfinal]")
+    if deband:
+        parts.append("[vout]gradfun=strength=0.75:radius=18,format=yuv420p[vfinal]")
+    else:
+        parts.append("[vout]format=yuv420p[vfinal]")
     return ";".join(parts), extra

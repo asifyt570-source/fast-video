@@ -39,6 +39,8 @@ def main() -> None:
                     choices=["landscape", "portrait", "both"])
     ap.add_argument("--force", action="store_true", help="re-time and overwrite spec")
     ap.add_argument("--keep", action="store_true", help="keep per-scene segments")
+    ap.add_argument("--draft", action="store_true",
+                    help="720p preview render (~2x faster, same composition)")
     ap.add_argument("--no-render", action="store_true", help="only write spec.json")
     a = ap.parse_args()
 
@@ -69,8 +71,9 @@ def main() -> None:
     layouts = ["landscape", "portrait"] if a.layout == "both" else [a.layout]
     made = []
     for lay in layouts:
-        log(f"rendering {a.slug} [{lay}]  {LAYOUTS[lay][0]}x{LAYOUTS[lay][1]}")
-        made.append(render_film(spec, lay, a.keep))
+        log(f"rendering {a.slug} [{lay}{' draft' if a.draft else ''}]  "
+            f"{LAYOUTS[lay][0]}x{LAYOUTS[lay][1]}")
+        made.append(render_film(spec, lay, a.keep, a.draft))
 
     log(f"finished {len(made)} file(s) in {time.time() - t0:.0f}s")
     for p in made:

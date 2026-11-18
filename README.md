@@ -13,10 +13,17 @@ voice.mp3  ──┘   (timing,    (scenes,     (one pass    film-portrait.mp4
                  layout)      widgets)     per scene)
 ```
 
-**Measured speed:** a 26.5 s narrated film renders in ~45 s per orientation on a
-modest laptop (~2.5× real time). A 10-minute film therefore lands around
-25 minutes, and on a GitHub Actions runner you don't even pay that cost
-locally.
+**Measured speed** on a modest laptop (26.5 s film, 9 scenes):
+
+| pass | time | note |
+|---|---|---|
+| first ever render | ~2.5 min | includes ~18 s whisper + ~40 s texture cache |
+| re-render, landscape | ~80 s | ~3× real time |
+| re-render, portrait | ~65–95 s | same |
+| `--draft` (720p) | ~43 s | ~2× faster, same composition |
+
+A 10-minute film therefore lands around 30 minutes per orientation locally —
+and on a GitHub Actions runner you don't pay that cost at all.
 
 ---
 
@@ -81,7 +88,13 @@ Useful flags:
 | `--layout landscape` | only one orientation |
 | `--force` | re-time from the narration and overwrite `spec.json` |
 | `--no-render` | only write the spec (cheap preview of the edit) |
+| `--draft` | 720p preview render, about twice as fast |
 | `--keep` | keep the per-scene segments for inspection |
+
+Encoders are not the bottleneck: switching x264 to `superfast`/`ultrafast`
+measured under 10% (env `FV_PRESET=superfast`, `FV_DEBAND=0`). The time goes
+into libass text shaping and the overlay compositor, so `--draft` (fewer
+pixels) or the cloud runner are the real levers.
 
 ---
 

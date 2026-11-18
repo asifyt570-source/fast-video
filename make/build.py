@@ -35,6 +35,11 @@ LAYOUTS = {
     "portrait": (1080, 1920, 0.62),
 }
 
+# Speed knobs — override with env vars when a draft needs to come out fast.
+#   FV_PRESET=superfast   FV_DEBAND=0
+X264_PRESET = os.environ.get("FV_PRESET", "veryfast")
+DEBAND = os.environ.get("FV_DEBAND", "1") != "0"
+
 
 def log(msg: str) -> None:
     print(msg, flush=True)
@@ -249,7 +254,7 @@ def render_scene(scene_spec: dict, idx: int, W: int, H: int, fps: int,
                drift=tuple(scene_spec.get("drift", (26.0, 14.0))))
 
     bg = assets.backdrop(int(W * 1.16), int(H * 1.16), sc.mood)
-    fc, extra = gfx.build_filter_complex(sc, W, H, fps, str(FONT_DIR))
+    fc, extra = gfx.build_filter_complex(sc, W, H, fps, str(FONT_DIR), DEBAND)
 
     cmd = ["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
            "-loop", "1", "-framerate", str(fps), "-t", f"{dur:.3f}", "-i", str(bg)]
@@ -257,7 +262,7 @@ def render_scene(scene_spec: dict, idx: int, W: int, H: int, fps: int,
         cmd += ["-loop", "1", "-framerate", str(fps), "-t", f"{dur:.3f}", "-i", p]
     cmd += ["-filter_complex", fc, "-map", "[vfinal]",
             "-t", f"{dur:.3f}", "-r", str(fps),
-            "-c:v", "libx264", "-preset", "veryfast", "-crf", "19",
+            "-c:v", "libx264", "-preset", X264_PRESET, "-crf", "19",
             "-pix_fmt", "yuv420p", "-g", str(fps),
             "-an", str(out_path)]
     run(cmd)
@@ -320,14 +325,17 @@ def mix_audio(scenes: list[dict], voice: Path | None, out: Path, total: float,
 
 
 # ── film ────────────────────────────────────────────────────────────────────
-def render_film(spec_path: Path, layout: str, keep: bool = False) -> Path:
+def render_film(spec_path: Path, layout: str, keep: bool = False,
+                draft: bool = False) -> Path:
     spec = json.loads(spec_path.read_text(encoding="utf-8"))
     slug = spec.get("slug", spec_path.parent.name)
     fps = int(spec.get("fps", 30))
 
     W, H, _scale = LAYOUTS[layout]
+    if draft:            # two-thirds of the final raster, same composition
+        W, H = (W * 2 // 3) // 2 * 2, (H * 2 // 3) // 2 * 2
     portrait = layout == "portrait"
-    out_dir = BUILD / slug / layout
+    out_dir = BUILD / slug / (f"{layout}-draft" if draft else layout)
     work = out_dir / "scenes"
     if work.exists() and not keep:
         shutil.rmtree(work)
@@ -369,7 +377,7 @@ def render_film(spec_path: Path, layout: str, keep: bool = False) -> Path:
     audio = work / "audio.m4a"
     mix_audio(scenes, voice, audio, total, spec.get("bed"))
 
-    final = out_dir / f"{slug}-{layout}.mp4"
+    final = out_dir / f"{slug}-{layout}{'-draft' if draft else ''}.mp4"
     run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
          "-i", str(silent), "-i", str(audio),
          "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "copy",
@@ -385,14 +393,16 @@ def main():
     ap.add_argument("--film", required=True, help="path to a film folder (has spec.json)")
     ap.add_argument("--layout", default="both", choices=["landscape", "portrait", "both"])
     ap.add_argument("--keep", action="store_true")
+    ap.add_argument("--draft", action="store_true",
+                    help="720p preview render (fast, same composition)")
     a = ap.parse_args()
 
     fp = Path(a.film)
     spec = fp / "spec.json" if fp.is_dir() else fp
     layouts = ["landscape", "portrait"] if a.layout == "both" else [a.layout]
     for lay in layouts:
-        log(f"rendering {spec.parent.name} [{lay}]")
-        render_film(spec, lay, a.keep)
+        log(f"rendering {spec.parent.name} [{lay}{' draft' if a.draft else ''}]")
+        render_film(spec, lay, a.keep, a.draft)
 
 
 if __name__ == "__main__":
