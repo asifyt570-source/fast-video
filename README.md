@@ -13,17 +13,29 @@ voice.mp3  ──┘   (timing,    (scenes,     (one pass    film-portrait.mp4
                  layout)      widgets)     per scene)
 ```
 
-**Measured speed** on a modest laptop (26.5 s film, 9 scenes):
+**Measured speed** on a modest laptop (26.5 s film, 9 scenes), cloud runner in
+the last column:
 
-| pass | time | note |
+| pass | local | GitHub runner |
 |---|---|---|
-| first ever render | ~2.5 min | includes ~18 s whisper + ~40 s texture cache |
-| re-render, landscape | ~80 s | ~3× real time |
-| re-render, portrait | ~65–95 s | same |
-| `--draft` (720p) | ~43 s | ~2× faster, same composition |
+| first ever render | ~2.5 min | — |
+| re-render, landscape | ~80 s | 24–28 s |
+| re-render, portrait | ~65–95 s | 27–32 s |
+| `--draft` (720p) | ~43 s | — |
 
-A 10-minute film therefore lands around 30 minutes per orientation locally —
-and on a GitHub Actions runner you don't pay that cost at all.
+A 10-minute film therefore lands around 30 minutes per orientation locally, and
+roughly 8–10 minutes per orientation on a free `ubuntu-latest` runner.
+
+## Where this lives
+
+| what | where |
+|---|---|
+| source | https://github.com/asifyt570-source/fast-video |
+| finished films | https://github.com/asifyt570-source/fast-video/releases |
+| cloud renders | https://github.com/asifyt570-source/fast-video/actions |
+
+Release assets are permanent; workflow **artifacts** are deleted after 14 days,
+so always keep the good cuts attached to a release tag (`v1`, `v2`, …).
 
 ---
 
